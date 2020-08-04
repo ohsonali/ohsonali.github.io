@@ -173,8 +173,7 @@ a {
       .site-hero h1 {
         font-size: 70px; } }
   .site-hero h1, .site-hero .lead {
-    font-weight: 200;
-    color: white !important; }
+    font-weight: 200; }
   .site-hero .lead {
     line-height: 2; }
   .site-hero .site-subheading {
