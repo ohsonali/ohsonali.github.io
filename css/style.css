@@ -174,13 +174,13 @@ a {
         font-size: 70px; } }
   .site-hero h1, .site-hero .lead {
     font-weight: 200;
-    color: #fff !important; }
+    color: white !important; }
   .site-hero .lead {
     line-height: 2; }
   .site-hero .site-subheading {
     max-width: 640px;
     margin: 0 auto;
-    color: #222222a6; }
+    color: White; }
 
 .site-section {
   padding: 5em 0; }
