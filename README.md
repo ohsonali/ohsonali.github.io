@@ -1,2 +1,2 @@
-# sonaliloomba
-Personal Portfolio
+# sonaliloomba.me
+Personal Website and Portfolio
