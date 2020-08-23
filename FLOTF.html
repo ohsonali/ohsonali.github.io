@@ -62,14 +62,31 @@
             <h4>For a detailed demonstration of the current part ordering process, view our problem statement <a href= "https://youtu.be/L2CiMDEHdH8">video.</a></h4>
             <br>
             <h2><span style="font-size: 2.3rem !important;"><strong style="color: #94b3e7;">Research</strong></span></h2>
-            <h4 class="mb-5">To better understand the necessary components to the part ordering process, and what mechanisms can be made more efficient,
+            <h4 class="mb-5">To better understand the necessary components of the part ordering process, and what mechanisms can be made more efficient,
               my partner and I delved into the steps a maintenance operator follows to order a part. After conducing our research, we found
               that it could take anywhere from 30 minutes to an hour to order a single part, from start to finish.
               By studying aircraft manuals, or more formally, Technical Orders, understanding the use of National Stock Numbers, recreating
               a mock warehouse inventory, and finally dissecting the F9006 part order form, our research gave us a solid foundation for our project.
-              <p></p></h4>
+              </h4>
 	            <center><img src="images/partOrdering.png" alt="Part Ordering" class="img-fluid"></center>
 <br><br><br>
+
+<h2><span style="font-size: 2.3rem !important;"><strong style="color: #94b3e7;">Methodology</strong></span></h2>
+<h4 class="mb-5">To automate the complex, manual steps of the current system, My partner and I built a Java desktop application that utilizes three core,
+intuitive algorithms.<h4>
+
+<h3><strong>Technical Order Parsing</strong></h3>
+<h4>To automate the process of extracting part information from the Technical Order, we created
+  a parsing algorithm to reproduce the manual in an interatctive form. The program first divides the table into rectangular areas where the text can be
+extracted by a Java library, PDFBox. The algorithm then separates the table into rows by
+measuring the Y-coordinates of the entries in the first column. Next, the algorithm divides each row into columns by reading the
+standardized column widths. This allows it to create smaller rectangles to
+organize the text we extract. This process repeats for every column and every row, creating
+and reading each rectangle of the table until the end of the page.
+<video autoplay>
+  <source src="images/TOanimation.mp4" type="video/mp4">
+Your browser does not support the Technical Order parsing animation.
+</video></h4>
             <p>
               <a href="https://github.com/ohsonali/FlightLineOfTheFuture"
               target= "_blank" class="btn btn-primary px-4 py-2 btn-sm smoothscroll">GitHub Repository</a>
