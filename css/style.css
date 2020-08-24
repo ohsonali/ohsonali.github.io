@@ -641,7 +641,7 @@ a {
   }
 
   /* Next & previous buttons */
-  .slideshow-container.prev, .slideshow-container.next {
+  .slideshow-container.prev, .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -667,15 +667,6 @@ a {
     background-color: rgba(0,0,0,0.8);
   }
 
-
-  /* Number text (1/3 etc) */
-  .slideshow-container.numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-  }
 
   /* The dots/bullets/indicators */
 .dot {
