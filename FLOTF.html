@@ -122,18 +122,16 @@ automate the process of ordering parts, using JavaFX and SceneBuilder to constru
 user interface. This constituted our project's third stage, which also included generating documentation for Travis Air Force Base to takeover the project.
     <p></p></h4><br><br>
     <div id="video-box"
-    <center><iframe id = "i_video" width="960" height="560" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+    <center><iframe id = "i_video" width="960" height="560" src="https://www.youtube.com/embed/TsZh8A7L9Do?start=18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
       </div>
     <script>
     window.onscroll = function() {
         var dv = document.getElementById('video-box');
         var v = document.getElementById('i_video');
         if ((window.scrollY < (dv.offsetTop + dv.offsetHeight)) && ((window.scrollY + window.outerHeight) > dv.offsetTop)) {
-            if (v.src=='' || v.src==location.href) {
-                v.src='https://www.youtube.com/embed/TsZh8A7L9Do?start=18&autoplay=1';
+            if (v.src=='https://www.youtube.com/embed/TsZh8A7L9Do?start=18' || v.src==location.href) {
+                v.src+= '&autoplay=1';
             }
-        } else {
-            v.src='';
         }
     }
 </script>
