@@ -121,8 +121,23 @@ window to circumvent the need to contact a supply operator to check a part’s i
 automate the process of ordering parts, using JavaFX and SceneBuilder to construct the
 user interface. This constituted our project's third stage, which also included generating documentation for Travis Air Force Base to takeover the project.
     <p></p></h4><br><br>
-    <center><video autoplay controls><iframe width="960" height="560" src="https://www.youtube.com/embed/TsZh8A7L9Do?start=18&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </center></h4><br><br><br>
+    <div id="video-box"
+    <center><iframe id = "i_video" width="960" height="560" src="https://www.youtube.com/embed/TsZh8A7L9Do?start=18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+      </div>
+    <script>
+    window.onscroll = function() {
+        var dv = document.getElementById('video-box');
+        var v = document.getElementById('i_video');
+        if ((window.scrollY < (dv.offsetTop + dv.offsetHeight)) && ((window.scrollY + window.outerHeight) > dv.offsetTop)) {
+            if (v.src=='' || v.src==location.href) {
+                v.src='https://www.youtube.com/embed/TsZh8A7L9Do?start=18';
+            }
+        } else {
+            v.src='';
+        }
+    }
+</script>
+    </h4><br><br><br>
 
     <h2><span style="font-size: 2.3rem !important;"><strong style="color: #94b3e7;">Future Improvements</strong></span></h2>
     <h4 class="mb-5">Within our 12 week window and three stages of our projects, my partner and I met our objective to deliver a proof-of-concept protoype. However, we acknowledge our program has room for improvement to make the part ordering process even more efficient for Travis Air Force Base.
