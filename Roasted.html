@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sonali Loomba</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/flexslider.css">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
+
+
+</head>
+<body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
+
+
+
+  <nav class="navbar navbar-expand-lg site-navbar navbar-light bg-light scrolled" id="pb-navbar">
+
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample09">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/index.html#section-portfolio">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="/index.html#section-blog">Articles</a></li>
+          <li class="nav-item"><a class="nav-link" href="/index.html#section-about">About Me</a></li>
+          <!--<li class="nav-item"><a class="nav-link" href="#section-contact">Contact</a></li>-->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="site-section">
+    <div class="container">
+      <center>
+        <div class="section-heading">
+          <br>
+          <h1><span style="color:#222222a6 !important; font-size: 3.3rem !important;">Roasted</span></h1>
+          <br>
+        </div>
+        <hr>
+        <h4>In Summer 2020, I had the opportunity to develop a program to streamline aircraft maintenance, working alongside Bernard Chan
+          and esteemed program leads, TSgt. Evan Strahan and SSgt. Max Estrada at Travis Air Force Base.</h4>
+          <hr><br>
+          </center>
+          <h2><span style="font-size: 2.3rem !important;"><strong style="color: #94b3e7;">Problem Statement</strong></span></h2>
+          <h4 class="mb-5">Presently, the first steps of the maintenance process at Travis Air Force Base begin with identifying the malfunctioning part
+            on the flight line, and subsequently putting in an order for that part. The current method of ordering a part uses a multitude of platforms and requires inquiry requests
+            to different departments before a formal supply order can be submitted. This process can be unwieldy and there is room for improvement to make it more efficient.
+            The goal with this project is to automate this complicated process to make it faster and easier for maintenance professionals to order new parts.
+            <p></p></h4>
+
+            <h4>For a detailed demonstration of the current part ordering process, view our problem statement <a href= "https://youtu.be/L2CiMDEHdH8">video.</a></h4>
+            <br>
+            <h2><span style="font-size: 2.3rem !important;"><strong style="color: #94b3e7;">Research</strong></span></h2>
+            <h4 class="mb-5">To better understand the necessary components of the part ordering process, and what mechanisms can be made more efficient,
+              my partner and I delved into the steps a maintenance operator follows to order a part. After conducting research in the first stage of our project, we found
+              that it could take anywhere from 30 minutes to an hour to order a single part, from start to finish.
+              By studying aircraft manuals, or more formally, Technical Orders, understanding the use of National Stock Numbers, recreating
+              a mock warehouse inventory, and finally dissecting the F9006 part order form, our research gave us a solid foundation for our project.
+              </h4>
+	            <center><img src="images/partOrdering.png" alt="Part Ordering" class="img-fluid"></center>
+<br><br><br>
+
+<h2><span style="font-size: 2.3rem !important;"><strong style="color: #94b3e7;">Methodology</strong></span></h2>
+<h4 class="mb-5">By analyzing friction points in the current system, I was able to better define a product strategy.
+  To automate the complex, manual stages of the current part ordering system, my partner and I honed in on the last step of the process, filling
+  out the part order form. In order to maximize efficiency, we targeted three segments that would greatly reduce time spent and actions needed to submit an order— Technical Orders, National Stock Numbers, and supply inquiries.
+  Thus, our program utilizes three core, intuitive algorithms that we developed during the second stage of our project.<h4>
+
+<h3><strong>Technical Order Parsing</strong></h3>
+<h4>To automate the process of extracting part information from the Technical Order, we created
+  a parsing algorithm to reproduce the manual into an interactive format. The program first divides the table into rectangular areas where the text can be
+extracted by a Java library, PDFBox. The algorithm then separates the table into rows by
+measuring the Y-coordinates of the entries in the first column. Next, the algorithm divides each row into columns by reading the
+standardized column widths. This allows it to create smaller rectangles to
+organize the text we extract. This process repeats for every column and every row, creating
+and reading each rectangle of the table until the end of the page.<br><br>
+<center><video autoplay loop>
+  <source src="images/TOanimation.mp4" type="video/mp4">
+<p>Your browser does not support the Technical Order parsing animation.</p>
+</video></center></h4><br><br><br>
+
+  <h3><strong>National Stock Number Web Scrape</strong></h3>
+  <h4>To minimize the need for the maintenance operator to open a web browser and copy the part number information to find the National Stock Number (NSN),
+    the second core algorithm web scrapes for NSNs. We used NSNCenter.com to match part numbers to national stock numbers,
+but because the site did not have an API, we used JSoup to web-scrape information
+from the HTML code of the webpage. The program collects all the possible
+corresponding NSNs for the specific part number chosen with their corresponding
+descriptions and cages. This algorithm allows us to display the collected information to the
+maintenance operator. While the program would ideally automatically pair a part to its NSN based on description and cage,
+we found relatively common issues like synonymous part descriptions and repeated cage
+numbers during our research. We decided to have the maintenance operator manually choose the
+corresponding NSN to avoid imprecisions.
+</h4><br><br>
+
+<h3><strong>Supply Inventory Inquiry</strong></h3>
+<h4>Lastly, the most time consuming portion of the part ordering process requires the maintenance operator to
+  contact a supply operator to confirm whether the part is in stock or if it needs to be ordered. To completely automate this step,
+  the third backend process references a CSV supply database to check a part’s inventory. The program scans through the database to find a part by its
+National Stock Number and its serve balance, or quantity in stock. This information is displayed in our program’s checkout
+window to circumvent the need to contact a supply operator to check a part’s inventory.
+</h4><br><br>
+<center><video autoplay loop>
+  <source src="images/warehouseAnimation.mp4" type="video/mp4">
+<p>Your browser does not support the supply inventory animation.</p>
+</video></center></h4>
+<center><h5>For our project prototype, we are utilizing a mock warehouse to mirror the current database at Travis AFB.</h5></center><br>
+<h4>For a detailed look into the core algorithms of our project, view our program methodology <a href= "https://youtu.be/UX1NaFna_Nc">video.</a> <br><br><br>
+
+  <h2><span style="font-size: 2.3rem !important;"><strong style="color: #94b3e7;">Final Prototype</strong></span></h2>
+  <h4 class="mb-5">For our final prototype, we developed a Java desktop application to
+automate the process of ordering parts, using JavaFX and SceneBuilder to construct the
+user interface. This constituted our project's third stage, which also included generating documentation for Travis Air Force Base to takeover the project.
+
+
+  </h4><br>
+    <div id="video-box"
+    <center><iframe id = "i_video" width="960" height="560" src="https://www.youtube.com/embed/TsZh8A7L9Do?start=18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+      </div>
+    <script>
+    window.onscroll = function() {
+        var dv = document.getElementById('video-box');
+        var v = document.getElementById('i_video');
+        if ((window.scrollY < (dv.offsetTop + dv.offsetHeight)) && ((window.scrollY + window.outerHeight) > dv.offsetTop)) {
+            if (v.src=='https://www.youtube.com/embed/TsZh8A7L9Do?start=18' || v.src==location.href) {
+                v.src+= '&autoplay=1';
+            }
+        }
+    }
+</script>
+    </h4><br><br><br>
+
+    <h2><span style="font-size: 2.3rem !important;"><strong style="color: #94b3e7;">Future Improvements</strong></span></h2>
+    <h4 class="mb-5">Within our 12 week window and three stages of our projects, my partner and I met our objective to deliver a proof-of-concept protoype. However, we acknowledge our program has room for improvement to make the part ordering process even more efficient for Travis Air Force Base.
+      Some of the features we would like to add or improve on include:<br><br>
+      <center>1. Retrofitting the user experience by reducing the number of actions needed and refining appearance. <br>
+      2. Including hover capabilities to check supply inventory.<br>
+      3. Accommodating multiple Technical Order pages, rather than just one table. <br>
+    </center>
+      <p></p></h4><br><br>
+
+  <h2><span style="font-size: 2.3rem !important;"><strong style="color: #94b3e7;">Acknowledgements</strong></span></h2>
+      <h4 class="mb-5">Thank you to the National Security Innovation Network and Dana Sanford for hosting this valuable, first-hand learning experience, and Kaitie Penry, my NSIN Point of Contact, for guiding me through the entire process. I would also like to thank the U.S. Department of Defense for supporting programs like the X-Force Fellowship that allow university students to get involved in national security. I appreciate the opportunity to work with Travis Air Force Base and Phoenix Spark Accelerator and the resources they provided for my partner and I to develop an impactful solution to a challenging problem. Finally, thank you to TSgt. Evan Strahan and SSgt. Max Estrada for working with our team every step of the way through brainstorming, prototyping, and ultimately building an effective end product designed specifically for airmen.
+        <p></p></h4><br><br>
+            <center><p>
+              <a href="https://github.com/ohsonali/FlightLineOfTheFuture"
+              target= "_blank" class="btn btn-primary px-4 py-2 btn-sm smoothscroll">GitHub Repository</a>
+              <a href= "https://bernardmc8.github.io/FLOTFJavaDoc/" target= "_blank" class="btn btn-secondary px-4 py-2 btn-sm">Java Documentation</a>
+            </p></center>
+        </div>
+</body>
+</html>
